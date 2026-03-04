@@ -11,3 +11,5 @@ Very brief descriptions of the repository files.
 - `README.md`: Project overview and run instructions.
 - `.gitignore`: Files and folders to ignore (e.g., `node_modules`).
 - `FILES.md`: This concise file map.
+
+![alt text](<Public Frontend to Server-2026-03-04-160609.png>)
