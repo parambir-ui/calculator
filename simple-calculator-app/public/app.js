@@ -81,13 +81,13 @@ function handleDecimal() {
   updateDisplay();
 }
 
-function handleOperator(op) {
+async function handleOperator(op) {
   const inputValue = parseFloat(currentValue);
 
   if (previousValue === '') {
     previousValue = inputValue;
   } else if (operation) {
-    const result = performCalculation(parseFloat(previousValue), inputValue, operation);
+    const result = await performCalculation(parseFloat(previousValue), inputValue, operation);
     currentValue = isNaN(result) ? '0' : result.toString();
     previousValue = result;
   }
@@ -100,12 +100,12 @@ function handleOperator(op) {
   currentExpression = currentValue + ' ' + opSymbol;
 }
 
-function handleEquals() {
+async function handleEquals() {
   const inputValue = parseFloat(currentValue);
 
   if (operation && previousValue !== '') {
     try {
-      const result = performCalculation(parseFloat(previousValue), inputValue, operation);
+      const result = await performCalculation(parseFloat(previousValue), inputValue, operation);
       const resultStr = isNaN(result) ? '0' : result.toString();
 
       // Show the complete expression with result permanently
@@ -219,7 +219,7 @@ async function performCalculation(a, b, op) {
         result = a / b;
         break;
       default:
-        result = b;
+        result = 0;
     }
     return roundToThreeDecimals(result);
   }
