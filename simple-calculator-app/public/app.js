@@ -184,26 +184,45 @@ function roundToThreeDecimals(num) {
   return rounded % 1 === 0 ? rounded : rounded;
 }
 
-function performCalculation(a, b, op) {
-  let result;
-  switch (op) {
-    case 'add':
-      result = a + b;
-      break;
-    case 'sub':
-      result = a - b;
-      break;
-    case 'mul':
-      result = a * b;
-      break;
-    case 'div':
-      if (b === 0) throw new Error('Division by zero');
-      result = a / b;
-      break;
-    default:
-      result = b;
+async function performCalculation(a, b, op) {
+  try {
+    const response = await fetch('/api/calc', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ op, a, b }),
+    });
+
+    if (!response.ok) {
+      throw new Error('Calculation failed');
+    }
+
+    const data = await response.json();
+    return roundToThreeDecimals(data.result);
+  } catch (error) {
+    console.error('API call failed:', error);
+    // Fallback to local calculation if API fails
+    let result;
+    switch (op) {
+      case 'add':
+        result = a + b;
+        break;
+      case 'sub':
+        result = a - b;
+        break;
+      case 'mul':
+        result = a * b;
+        break;
+      case 'div':
+        if (b === 0) throw new Error('Division by zero');
+        result = a / b;
+        break;
+      default:
+        result = b;
+    }
+    return roundToThreeDecimals(result);
   }
-  return roundToThreeDecimals(result);
 }
 
 // Event listeners
