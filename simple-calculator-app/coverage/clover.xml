@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1772665475644" clover="3.2.0">
+  <project timestamp="1772665475644" name="All files">
+    <metrics statements="10" coveredstatements="10" conditionals="13" coveredconditionals="13" methods="1" coveredmethods="1" elements="24" coveredelements="24" complexity="0" loc="10" ncloc="10" packages="1" files="1" classes="1"/>
+    <file name="calculator.js" path="/Users/parambir/Code/simple-calculator-app/functions/calculator.js">
+      <metrics statements="10" coveredstatements="10" conditionals="13" coveredconditionals="13" methods="1" coveredmethods="1"/>
+      <line num="2" count="64" type="cond" truecount="6" falsecount="0"/>
+      <line num="3" count="12" type="stmt"/>
+      <line num="5" count="52" type="cond" truecount="5" falsecount="0"/>
+      <line num="7" count="15" type="stmt"/>
+      <line num="9" count="8" type="stmt"/>
+      <line num="11" count="10" type="stmt"/>
+      <line num="13" count="10" type="cond" truecount="2" falsecount="0"/>
+      <line num="14" count="7" type="stmt"/>
+      <line num="16" count="9" type="stmt"/>
+      <line num="20" count="2" type="stmt"/>
+    </file>
+  </project>
+</coverage>

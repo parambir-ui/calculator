@@ -2,26 +2,40 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Simple Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Calculator</title>
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <main>
-      <h1>Simple Calculator</h1>
-      <div class="calc">
-        <input id="a" type="number" placeholder="First number" />
-        <input id="b" type="number" placeholder="Second number" />
-        <select id="op">
-          <option value="add">Add (+)</option>
-          <option value="sub">Subtract (-)</option>
-          <option value="mul">Multiply (×)</option>
-          <option value="div">Divide (÷)</option>
-        </select>
-        <button id="calc">Calculate</button>
-        <div id="result" class="result">Result: —</div>
+    <div class="calculator">
+      <button class="theme-toggle" id="theme-toggle" title="Toggle theme">☀️</button>
+      <div class="display" id="result">0</div>
+      <div class="buttons">
+        <button class="btn function" data-clear>AC</button>
+        <button class="btn function" data-sign>+/−</button>
+        <button class="btn function" data-percent>%</button>
+        <button class="btn operator" data-op="div">÷</button>
+
+        <button class="btn number" data-num="7">7</button>
+        <button class="btn number" data-num="8">8</button>
+        <button class="btn number" data-num="9">9</button>
+        <button class="btn operator" data-op="mul">×</button>
+
+        <button class="btn number" data-num="4">4</button>
+        <button class="btn number" data-num="5">5</button>
+        <button class="btn number" data-num="6">6</button>
+        <button class="btn operator" data-op="sub">−</button>
+
+        <button class="btn number" data-num="1">1</button>
+        <button class="btn number" data-num="2">2</button>
+        <button class="btn number" data-num="3">3</button>
+        <button class="btn operator" data-op="add">+</button>
+
+        <button class="btn number zero" data-num="0">0</button>
+        <button class="btn number" data-decimal>.</button>
+        <button class="btn equals" data-equals>=</button>
       </div>
-    </main>
+    </div>
     <script src="/app.js"></script>
   </body>
 </html>
