@@ -1,9 +1,10 @@
+// grab references to DOM elements and initialize state variables
 let display = document.getElementById('result');
-let currentValue = '0';
-let previousValue = '';
-let operation = null;
-let shouldClearDisplay = false;
-let currentExpression = '0'; // Track the full expression being built
+let currentValue = '0';           // what is currently shown on screen
+let previousValue = '';           // left operand for binary operations
+let operation = null;             // current operator e.g. 'add','sub'
+let shouldClearDisplay = false;   // flag for whether next number press resets
+let currentExpression = '0';      // full expression string shown above result
 
 const numberButtons = document.querySelectorAll('[data-num]');
 const operatorButtons = document.querySelectorAll('[data-op]');
@@ -51,8 +52,9 @@ function getOperatorSymbol(op) {
   return symbols[op] || op;
 }
 
+// update the calculator display; called after any state change
+// `currentExpression` takes precedence so the result/eqs are visible
 function updateDisplay() {
-  // Show the current expression, or just the current value if no expression
   const text = currentExpression || currentValue;
   display.textContent = text;
 }
